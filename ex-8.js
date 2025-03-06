@@ -374,23 +374,33 @@ const bills = [
 ];
 
 // Start coding here
+//ดึงobject ในarray ออกว่า locat : total
 
-const totalPaidByLocation = {};
-/* puch array to object  plus */
+/* const totalPaidByLocation = {};
+const piceLocation = (arrayLocat) => {
+	// let arrayPice = arrayLocat.slice(0, 5);
+	// console.log(arrayPice[0].total);
 
-/* const piceLocation = (arraylocation) => {
-	arraylocation.slice(0, 5);
-	console.log(arraylocation);
-	console.log(arraylocation[1].location);
+	for (let i = 0; i < arrayLocat.length; i += 1) {
+		if (totalPaidByLocation[arrayLocat[i].location] === undefined) {
+			totalPaidByLocation[arrayLocat[i].location] = arrayLocat[i].total;
+		} else {
+			totalPaidByLocation[arrayLocat[i].location] += arrayLocat[i].total;
+		}
+	}
+};
+piceLocation(bills);
+console.log(totalPaidByLocation); 
+{ location, total }
+*/
+const totalBillTransaction = (bills) => {
+	bills.reduce((acc, cur) => {
+		console.log(cur.location);
+		console.log(cur.total);
+		acc[cur.location] = (acc[cur.location] || 0) + cur.total;
+		return acc;
+	}, {});
+};
+totalBillTransaction(bills);
 
-	return arraylocation.slice(0, 5).map((locatPice) => {
-		// console.log(totalPaidByLocation[arraylocation[locatPice]]);
-		console.log(locatPice);
-		console.log(locatPice[0]);
-
-		return (totalPaidByLocation[arraylocation[locatPice]] =
-			totalPaidByLocation[locatPice.total] + locatPice.total);
-	});
-}; */
-
-const piceLocation = console.log(piceLocation(bills));
+// console.log(totalBillTransaction(bills));
