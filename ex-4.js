@@ -374,4 +374,6 @@ const bills = [
 ];
 
 // Start coding here
-const totalMembers;
+const totalMembers = bills.filter(bills => bills.member && bills.member.name)
+.reduce((acc , bills)=> acc.includes(bills.member.name) ? acc : [...acc, bills.member.name],[]);
+console.log(`"Unique Members Count: ${totalMembers.length}"`);
